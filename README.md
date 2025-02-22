@@ -202,11 +202,11 @@ brokerage
 For example:
 
 ```console
-> getbrokerage TZ7U1WVBRLZ2umjizxqz3XfearEHhXKX7h  
+> getbrokerage   TBWTVgPta6CUvbeHK9hnETwg4zU3hjcMQ3
 
-> getreward  TNfu3u8jo1LDWerHGbzs2Pv88Biqd85wEY
+> getreward  TBWTVgPta6CUvbeHK9hnETwg4zU3hjcMQ3
 
-> updateBrokerage TZ7U1WVBRLZ2umjizxqz3XfearEHhXKX7h 30
+> updateBrokerage  TBWTVgPta6CUvbeHK9hnETwg4zU3hjcMQ3 300
 ```
 
 ## How to calculate bandwidth
@@ -215,7 +215,7 @@ The bandwidth calculation rule is:
 
     constant * FrozenFunds * days
 
-Assuming freeze 1TRX（1_000_000 Sun), 3 days, bandwidth obtained = 1 * 1_000_000 * 3 = 3_000_000.
+Assuming freeze 10000TRX（1_000_000 Sun), 3 days, bandwidth obtained = 1 * 1_000_000_000_000_000 * 3 = 3_000_000.
 
 All contracts consume bandwidth, including transferring, transferring of assets, voting, freezing, etc.
 Querying does not consume bandwidth. Each contract needs to consume **100_000 bandwidth**.
@@ -250,7 +250,7 @@ $ ./gradlew run
 > RegisterWallet 123456      (password = 123456)
 > login 123456
 > getAddress
-address = TRfwwLDpr4excH4V4QzghLEsdYwkapTxnm'  # backup it!
+address =TBWTVgPta6CUvbeHK9hnETwg4zU3hjcMQ3 '  # backup it!
 > BackupWallet 123456
 priKey = 075725cf903fc1f6d6267b8076fc2c6adece0cfd18626c33427d9b2504ea3cef'  # backup it!!! (BackupWallet2Base64 option)
 > getbalance
@@ -266,7 +266,7 @@ Balance = 0
 ],)
   # (cost trx 1000 trx for assetIssue)
   # (You can query the trx balance and other asset balances for any account )
-> TransferAsset TWzrEZYtwzkAxXJ8PatVrGuoSNsexejRiM 1000001 10000
+> TransferAsset TBWTVgPta6CUvbeHK9hnETwg4zU3hjcMQ3 1000000000001 100000000000
 ```
 
 ## How to issue a TRC10 token
@@ -319,34 +319,34 @@ FrozenAmount0 FrozenDays0
 Example:
 
 ```console
-> AssetIssue TestTRX TRX 75000000000000000 1 1 2 "2019-10-02 15:10:00" "2020-07-11" "just for test121212" www.test.com 100 100000 10000 10 10000 1
-> GetAssetIssueByAccount TRGhNNfnmgLegT4zHNjEqDSADjgmnHvubJ  # View published information
+> AssetIssue TestTRX TRX 7500000000000000000000 1 1 2 "2019-10-02 15:10:00" "2020-07-11" "just for test121212" www.test.com 100 100000 10000 10 10000 1
+> GetAssetIssueByAccount  TBWTVgPta6CUvbeHK9hnETwg4zU3hjcMQ3 # View published information
 {
     "assetIssue": [
         {
-            "owner_address": "TRGhNNfnmgLegT4zHNjEqDSADjgmnHvubJ",
+            "owner_address": "TBWTVgPta6CUvbeHK9hnETwg4zU3hjcMQ3",
             "name": "TestTRX",
             "abbr": "TRX",
-            "total_supply": 75000000000000000,
+            "total_supply": 750000000000000000000000,
             "frozen_supply": [
                 {
-                    "frozen_amount": 10000,
+                    "frozen_amount": 100000000,
                     "frozen_days": 1
                 },
                 {
-                    "frozen_amount": 10000,
+                    "frozen_amount": 100000000,
                     "frozen_days": 10
                 }
             ],
             "trx_num": 1,
             "precision": 2,
             "num": 1,
-            "start_time": 1570000200000,
+            "start_time": 1570000200000000,
             "end_time": 1594396800000,
             "description": "just for test121212",
             "url": "www.test.com",
             "free_asset_net_limit": 100,
-            "public_free_asset_net_limit": 100000,
+            "public_free_asset_net_limit": 1000000000,
             "id": "1000001"
         }
     ]
@@ -362,18 +362,18 @@ Specific meaning of the parameters is the same as that of AssetIssue.
 Example:
 
 ```console
-> UpdateAsset 1000 1000000 "change description" www.changetest.com
-> GetAssetIssueByAccount TRGhNNfnmgLegT4zHNjEqDSADjgmnHvubJ  # View the modified information
+> UpdateAsset 1000 10000000000 "change description" www.changetest.com
+> GetAssetIssueByAccount  TBWTVgPta6CUvbeHK9hnETwg4zU3hjcMQ3 # View the modified information
 {
     "assetIssue": [
         {
-            "owner_address": "TRGhNNfnmgLegT4zHNjEqDSADjgmnHvubJ",
+            "owner_address": "TBWTVgPta6CUvbeHK9hnETwg4zU3hjcMQ3",
             "name": "TestTRX",
             "abbr": "TRX",
-            "total_supply": 75000000000000000,
+            "total_supply": 750000000000000000000000000,
             "frozen_supply": [
                 {
-                    "frozen_amount": 10000,
+                    "frozen_amount": 100000000000,
                     "frozen_days": 1
                 },
                 {
